@@ -319,7 +319,7 @@ li:last-child{margin-bottom:0}
     }
 
     if (editing) h += '<p class="hint">회색 점선 안을 눌러 바로 고칩니다. 한 상자 안의 여러 문단은 한꺼번에 이어서 쓰거나 지울 수 있습니다. 되돌리려면 취소를 누르세요.' +
-                      (window.RW_SAVE ? ' 저장을 누르면 고객용 페이지에 바로 반영됩니다.'
+                      (window.RW_SAVE ? ' 저장을 누르면 고객용 페이지에 1분 안에 반영됩니다.'
                        : (LOCAL ? ' 저장을 누르면 이 파일에 그대로 덮어씁니다(처음 한 번만 파일을 고릅니다).' : '')) + '</p>';
     if (note) h += '<p class="note' + (noteOk ? ' ok' : '') + '">' + esc(note) + '</p>';
     h += '<footer class="foot"><span class="foot-l"><span>REALWORK 리얼워크</span>' + toolbar() + '</span>' +
@@ -407,7 +407,7 @@ li:last-child{margin-bottom:0}
       try {
         await window.RW_SAVE(contentOf(state));
         ORIG = JSON.stringify(state);
-        busy = false; editing = false; noteOk = true; note = '저장했습니다. 고객용 페이지에 반영됐습니다.'; render();
+        busy = false; editing = false; noteOk = true; note = '저장했습니다. 고객용 페이지에는 1분 안에 반영됩니다.'; render();
         setTimeout(function(){ if (noteOk){ note = ''; noteOk = false; render(); } }, 2500);
       } catch (err){
         busy = false; note = '저장하지 못했습니다: ' + ((err && err.message) || err); render();
@@ -497,8 +497,5 @@ li:last-child{margin-bottom:0}
 })();
 </script>
 
-<style>#rw-root{visibility:hidden}#rw-wait{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans KR",sans-serif;font-size:13px;color:#8A93A1;background:var(--paper,#fff)}</style>
-<div id="rw-wait">불러오는 중…</div>
-<script id="rw-live">(function(){var u="https://script.google.com/macros/s/AKfycbwWEpKVHk_C9FEZA_wovBjoDJIIAVTO1Crk7YNvnhc5EQAjBLpjCLA4Kv0SGfnWpfvk/exec?t=Tu-uqaBr7r0_&f=json",root=document.getElementById("rw-root"),w=document.getElementById("rw-wait"),done=false;function show(){if(done)return;done=true;root.style.visibility="visible";if(w)w.remove();}var t=setTimeout(show,8000);fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.cur&&window.rwApply)window.rwApply(j.cur);clearTimeout(t);show();}).catch(show);})();</script>
 </body>
 </html>
