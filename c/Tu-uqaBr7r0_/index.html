@@ -497,7 +497,8 @@ li:last-child{margin-bottom:0}
 })();
 </script>
 
-<style>#rw-root{visibility:hidden}</style>
-<script id="rw-live">(function(){var u="https://script.google.com/macros/s/AKfycbwWEpKVHk_C9FEZA_wovBjoDJIIAVTO1Crk7YNvnhc5EQAjBLpjCLA4Kv0SGfnWpfvk/exec?t=Tu-uqaBr7r0_&f=json",root=document.getElementById("rw-root"),done=false;function show(){if(!done){done=true;root.style.visibility="visible";}}setTimeout(show,2500);fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.cur&&window.rwApply)window.rwApply(j.cur);show();}).catch(show);})();</script>
+<style>#rw-root{visibility:hidden}#rw-wait{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans KR",sans-serif;font-size:13px;color:#8A93A1;background:var(--paper,#fff)}</style>
+<div id="rw-wait">불러오는 중…</div>
+<script id="rw-live">(function(){var u="https://script.google.com/macros/s/AKfycbwWEpKVHk_C9FEZA_wovBjoDJIIAVTO1Crk7YNvnhc5EQAjBLpjCLA4Kv0SGfnWpfvk/exec?t=Tu-uqaBr7r0_&f=json",root=document.getElementById("rw-root"),w=document.getElementById("rw-wait"),done=false;function show(){if(done)return;done=true;root.style.visibility="visible";if(w)w.remove();}var t=setTimeout(show,8000);fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.cur&&window.rwApply)window.rwApply(j.cur);clearTimeout(t);show();}).catch(show);})();</script>
 </body>
 </html>
