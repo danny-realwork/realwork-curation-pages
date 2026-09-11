@@ -497,6 +497,7 @@ li:last-child{margin-bottom:0}
 })();
 </script>
 
-<script id="rw-live">(function(){var u="https://script.google.com/macros/s/AKfycbwWEpKVHk_C9FEZA_wovBjoDJIIAVTO1Crk7YNvnhc5EQAjBLpjCLA4Kv0SGfnWpfvk/exec?t=Tu-uqaBr7r0_&f=json";fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.cur&&window.rwApply)window.rwApply(j.cur);}).catch(function(){});})();</script>
+<style>#rw-root{visibility:hidden}</style>
+<script id="rw-live">(function(){var u="https://script.google.com/macros/s/AKfycbwWEpKVHk_C9FEZA_wovBjoDJIIAVTO1Crk7YNvnhc5EQAjBLpjCLA4Kv0SGfnWpfvk/exec?t=Tu-uqaBr7r0_&f=json",root=document.getElementById("rw-root"),done=false;function show(){if(!done){done=true;root.style.visibility="visible";}}setTimeout(show,2500);fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.cur&&window.rwApply)window.rwApply(j.cur);show();}).catch(show);})();</script>
 </body>
 </html>
